@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"Golang/testpackage"
+	"fmt"
+)
 
 func main() {
 	/*
@@ -17,4 +20,12 @@ func main() {
 
 	fmt.Println(name)
 	fmt.Println(age)
+	fmt.Println(testpackage.Test1)
+	fmt.Println(testpackage.Test2)
 }
+
+/*
+	一个文件夹下面只能有一个包，但是可以有多个文件，每个文件都是这个包，只不过分开写了
+	他们是属于一个包的，所以变量名是不可以重复的
+	一个包可以把所有文件的内容整合到一起，只是视觉上看起来是多个文件
+*/
