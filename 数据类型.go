@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func main() {
+func main2() {
 	var num1 uint
 	var num2 int
 	var num3 float64
