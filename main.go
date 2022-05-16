@@ -1,76 +1,60 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 func main() {
-	var num1 uint
-	var num2 int
-	var num3 float64
-	var str string
-	var bool1 bool
-	var bool2 bool
+	dwj := "dengwenjie"
+	num := 1209
 
-	num1 = 999
-	num2 = -999
-	num3 = 3.14
-	str = "我是字符串"
-	bool1 = false
-	bool2 = true
+	if dwj == "dengwenjie" {
+		fmt.Println("进入了这里")
+	} else if dwj == "ww" {
+		fmt.Println("ww")
+	} else {
+		fmt.Println("进到 else 了")
+	}
 
-	fmt.Println(num1, num2, num3, str, bool1, bool2)
+	switch num {
+	case 1:
+		fmt.Println("到了1")
+	case 1209:
+		fmt.Println("到了2")
+		fallthrough // 是想让他走到下一个去
+	case 3:
+		fmt.Println("到了3")
+	default:
+		fmt.Println("go 语言里面默认会 break 终止")
+	}
 
-	// fmt.Printf("%T", str, "zi") // 用于判断是什么类型
+	//for i := 0; i < 10; i++ {
+	//	fmt.Println(i)
+	//}
 
-	// 字符串转成整数类型  string -> int
-	str1 := "123"
-	var int123, _ = strconv.Atoi(str1)
-	fmt.Println(int123)
-	fmt.Printf("%T", int123)
+	//var a = 0 // a := 0
+	//for a < 10 {
+	//	a++
+	//
+	//	if a == 2 {
+	//		//return
+	//		continue // 跳出本次循环
+	//	}
+	//
+	//	fmt.Println(a)
+	//}
 
-	// string -> int64
-	str2 := "234"
-	int2, _ := strconv.ParseInt(str2, 10, 64)
-	fmt.Println(int2)
-	fmt.Printf("%T", int2)
+	a := 0
+A:
+	for a < 10 {
+		a++
 
-	// int -> string
-	num111 := 111
-	string1 := strconv.Itoa(num111)
-	fmt.Println(string1)
-	fmt.Printf("%T", string1)
+		if a == 2 {
+			//return
+			break A // 跳转 A
+			goto B
+		}
 
-	// 字符串到 float32、float64
-	str3 := "3.14"
-	float3, _ := strconv.ParseFloat(str3, 32)
-	fmt.Println(float3)
-
-	// int64 转 int
-	// int(64的)
+		fmt.Println(a)
+	}
+B:
+	fmt.Println("跳转到 B 来了")
 }
-
-/*
-	基本数据类型
-
-	int
-		uint 正整数
-		byte 需要字节存储时候才会用到 一般是字节组成的数组
-		rune 等价于 int32 存储一个 Unicode 编码
-		int 全部整数
-	float 浮点型
-	string 字符串
-	bool 布尔类型
-
-	复杂数据类型
-
-		结构 struct
-		接口 interface
-		数组 [value, value]
-    切片 slice
-		map {key: value}
-		指针
-		函数 func
-		管道 chan
-*/
