@@ -67,7 +67,7 @@ func main2() {
 
 		结构 struct
 		接口 interface
-		数组 [value, value]
+		数组 [2]int{1, 2}
     切片 slice
 		map {key: value}
 		指针
