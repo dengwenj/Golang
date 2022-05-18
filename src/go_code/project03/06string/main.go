@@ -31,4 +31,11 @@ func main() {
 		"hello12332112345677887921" + "hello12332112345677887921" +
 		"hello12332112345677887921"
 	fmt.Println(str2)
+
+	// 基本数据类型的默认值
+	var a int     // 0
+	var b float64 // 0
+	var c string  // ""
+	var d bool    // false
+	fmt.Println(a, b, c, d)
 }
