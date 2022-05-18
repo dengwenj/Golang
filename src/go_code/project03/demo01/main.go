@@ -31,6 +31,13 @@ func main() {
 		sex1  = sex
 	)
 
+	var str1 = "dwj"
+	var str2 = "ww"
+	var n1 = 1
+	var n2 = 2
+	fmt.Println(str1 + str2)
+	fmt.Println(n1 + n2)
+
 	fmt.Println(num, num1, num2, num3, name, hh)
 	fmt.Println(name1, age1, sex1)
 }
