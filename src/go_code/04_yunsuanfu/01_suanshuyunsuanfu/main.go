@@ -17,4 +17,13 @@ func main() {
 	fmt.Println(-10 % 3)  // -1
 	fmt.Println(-10 % -3) // -1
 	fmt.Println(10 % -3)  // 1
+
+	// 在 go 中， ++ 和 -- 只能独立使用
+	//var i = 10
+	//var x int
+	//x = i++ // 只能独立使用
+	//i++
+	//if i++ > 0 { // 只能独立使用
+	//
+	//}
 }
