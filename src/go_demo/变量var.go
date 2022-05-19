@@ -1,7 +1,7 @@
-package main
+package go_demo
 
 import (
-	"Golang/testpackage"
+	testpackage2 "Golang/src/go_demo/testpackage"
 	"fmt"
 )
 
@@ -20,8 +20,8 @@ func main1() {
 
 	fmt.Println(name)
 	fmt.Println(age)
-	fmt.Println(testpackage.Test1)
-	fmt.Println(testpackage.Test2)
+	fmt.Println(testpackage2.Test1)
+	fmt.Println(testpackage2.Test2)
 }
 
 /*
