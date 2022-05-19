@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"Golang/src/go_code/project03/pckagehh"
+	"fmt"
+)
 
 func main() {
 	/*
@@ -28,4 +31,5 @@ func main() {
 	// 修改 num 的值
 	*ptr1 = 110
 	fmt.Println(num1) // 110
+	fmt.Println(pckagehh.Test)
 }
