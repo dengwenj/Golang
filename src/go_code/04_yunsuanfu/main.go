@@ -32,4 +32,23 @@ func main() {
 	if !(n1 > 10) {
 		fmt.Println("没有进来")
 	}
+
+	a := 10
+	b := 20
+	fmt.Println(a, b)
+
+	t := a
+	a = b
+	b = t
+	fmt.Println(a, b)
+
+	c := 30
+	d := 40
+
+	c = c + d
+	d = c - d
+	c = c - d
+	fmt.Println(c, d)
+	//c, d = d, c
+	//fmt.Println(c, d)
 }
