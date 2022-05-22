@@ -51,6 +51,16 @@ func main() {
 	fmt.Println(c, d)
 	//c, d = d, c
 	//fmt.Println(c, d)
+	var er = 129
+	fmt.Printf("二进制%b\n", er)
+	var ba = 156
+	fmt.Printf("八进制%o\n", ba)
+	var shiliu = 356
+	fmt.Printf("十六进制%x\n", shiliu)
+	var hh = 0234
+	fmt.Printf("%b\n", hh)
+	var dd = 0xD24
+	fmt.Printf("%b\n", dd)
 
 	var name string
 	var age byte
