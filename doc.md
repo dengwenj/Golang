@@ -254,3 +254,52 @@ func LearnConst() {
 * 数字类型整型 int 和浮点型 float32、float64，go 语言支持整型和浮点型数字，并且支持复数，其中位的运算采用补码
 * 字符串类型就是一串固定长度的字符连接起来的字符序列，go的字符串是由单个字节连接起来的，go语言的字符串的字节使用 UTF-8编码标识 Unicode 文本
 * 派生类型包括：1、指针类型（Pointer），2、数组类型，3、结构体类型（struct），4、Channel类型，5、函数类型、6、切片类型，7、接口类型，8、Map类型
+
+```go
+package learndatatype
+
+import "fmt"
+
+func fn() {
+
+}
+
+func LearnDataType() {
+	var name string = "邓文和"
+	age := 18
+	b := true
+	// %T 是打印类型 \n 是换行
+	fmt.Printf("%T\n", name)
+	fmt.Printf("%T\n", age)
+	fmt.Printf("%T\n", b)
+
+	//	指针类型
+	var a = 1
+	dwj := &a
+	fmt.Printf("%T\n", dwj)
+
+	//	数组类型
+	arr := [2]int{1, 2}
+	fmt.Printf("%T\n", arr)
+
+	// 切片 类型, 就是不写长度
+	s := []int{1, 2, 3, 4, 5}
+	fmt.Printf("%T\n", s)
+
+	// 函数类型
+	fmt.Printf("%T\n", fn)
+}
+```
+
+**布尔类型**
+
+* go语言中的布尔类型有两个常量值：true 和 false，布尔类型经常用在**条件判断**语句，**循环语句**，也可以用在**逻辑表达式**中，不能使用 0和非0标识真假
+
+```go
+func main() {
+	n := 1
+	// 这样是不行的，不能使用 0和非0标识真假
+	if n {}
+}
+```
+
