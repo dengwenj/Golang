@@ -1,6 +1,6 @@
 package main
 
-import "go_ww/number"
+import "go_ww/string"
 
 func main() {
 	//name1 := user.Hello()
@@ -16,5 +16,8 @@ func main() {
 	//learndatatype.LearnDataType()
 
 	//	数字类型
-	number.LearnNumber()
+	//number.LearnNumber()
+
+	//字符串类型
+	string2.LearnString()
 }
