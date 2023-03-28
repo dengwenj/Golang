@@ -303,3 +303,56 @@ func main() {
 }
 ```
 
+**数字类型**
+
+* go语言支持整型和浮点型数字，并且原生支持复数，其中位的运算采用补码
+* go 也有基于架构的类型，例如：int、uint、uintptr
+* 这些类型的字节都是根据程序所在的操作系统类型所决定的：
+* uintptr 的长度被设定位足够存放一个指针即可
+* int 和 uint 在 32 位操作系统，均使用32位（4个字节），在64位操作系统上，均使用64位（8个字节）
+* go 语言没有 float 类型，只有 float32 和 float64，没有 double类型
+* 与操作系统架构无关的类型都有固定的大小，并在类型的名称中就可以看出来：
+* int8（-128 - 127）int16、int32、int64
+* uint8（0- 255）、uint16、uint32、uint64
+* float32、float64
+* int 型是计算最快的一种类型
+* 整型的默认值是 0，浮点型的默认值是 0.0
+
+```go
+package number
+
+import (
+	"fmt"
+	"math"
+	"unsafe"
+)
+
+func LearnNumber() {
+	var i8 int8
+	var i16 int16
+	var i32 int32
+	var i64 int64
+	var ui8 uint8
+	var ui16 uint16
+	var ui32 uint32
+	var ui64 uint64
+
+	fmt.Printf("%T %dB% %v~%v\n", i8, unsafe.Sizeof(i8), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", i16, unsafe.Sizeof(i16), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", i32, unsafe.Sizeof(i32), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", i64, unsafe.Sizeof(i64), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", ui8, unsafe.Sizeof(ui8), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", ui16, unsafe.Sizeof(ui16), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", ui32, unsafe.Sizeof(ui32), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", ui64, unsafe.Sizeof(ui64), math.MinInt8, math.MaxInt8)
+
+	var f64 float64
+	var f32 float32
+	fmt.Printf("%T %dB% %v~%v\n", f64, unsafe.Sizeof(f64), math.MinInt8, math.MaxInt8)
+	fmt.Printf("%T %dB% %v~%v\n", f32, unsafe.Sizeof(f32), math.MinInt8, math.MaxInt8)
+
+	var i int
+	fmt.Printf("%T %dB% %v~%v\n", i, unsafe.Sizeof(i))
+}
+```
+
