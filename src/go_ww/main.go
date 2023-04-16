@@ -31,5 +31,9 @@ func main() {
 	//flow.SwitchFlow()
 
 	// for
-	flow.ForFlow()
+	//flow.ForFlow()
+
+	//for range
+	flow.ForRangeFlow()
 }
+

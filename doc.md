@@ -582,7 +582,7 @@ func SwitchFlow() {
 **for**
 
 * Go 语言中的 for 循环，只有 for 关键字，去除了像其他语言中的 while 和 do while
-* 语法 ：for 初始语句; 条件表达式; 结束语句 { 循环体语句 }，不用加括号
+* 语法 ：for 初始语句; 条件表达式(i < 10); 结束语句 { 循环体语句 }，不用加括号
 * for 循环可以通过 break、goto、return、 panic 语句强制退出循环
 
 ```go
@@ -600,6 +600,60 @@ func ForFlow() {
 		num1++
 	}
 	println(num1)
+}
+```
+
+**for range**
+
+* Go 语言中可以使用 for range 遍历数组、切片、字符串、map 及通道（channel）。通过 for range 遍历的返回值有如下规律：
+* 1、数组、切片、字符串返回索引和值
+* 2、map返回键和值
+* 3、通道（channel）值返回通道内的值
+
+```go
+package flow
+
+import "fmt"
+
+//数组
+func forRangeFlow1() {
+	arr := [...]int{1, 2, 3, 4, 5}
+	for i, v := range arr {
+		fmt.Printf("%v:%v\n", i, v)
+	}
+}
+
+//切片
+func forRangeFlow2() {
+	s := []int{1, 2, 3, 4, 5, 6, 7}
+	for i, v := range s {
+		fmt.Printf("%v:%v\n", i, v)
+	}
+}
+
+//map
+func forRangeFlow3() {
+	m := make(map[string]string, 0)
+	m["name"] = "邓文杰"
+	m["age"] = "23"
+	for key, value := range m {
+		fmt.Printf("%v:%v\n", key, value)
+	}
+}
+
+//字符串
+func forRangeFlow4() {
+	str := "hello world"
+	for i, v := range str {
+		fmt.Printf("%v:%c\n", i, v)
+	}
+}
+
+func ForRangeFlow() {
+	forRangeFlow1()
+	forRangeFlow2()
+	forRangeFlow3()
+	forRangeFlow4()
 }
 ```
 
