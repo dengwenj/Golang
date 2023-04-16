@@ -1,6 +1,6 @@
 package main
 
-import "go_ww/flow"
+import arr "go_ww/arr"
 
 func main() {
 	//name1 := user.Hello()
@@ -43,5 +43,8 @@ func main() {
 	//flow.ContinueFlow()
 
 	//goto
-	flow.GotoFlow()
+	//flow.GotoFlow()
+
+	//数组
+	arr.Array()
 }
