@@ -1,6 +1,8 @@
 package main
 
-import "go_ww/format"
+import (
+	"go_ww/flow"
+)
 
 func main() {
 	//name1 := user.Hello()
@@ -22,5 +24,7 @@ func main() {
 	//string2.LearnString()
 
 	//格式转换
-	format.Format()
+	//format.Format()
+
+	flow.IfFlow()
 }
