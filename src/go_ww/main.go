@@ -1,6 +1,6 @@
 package main
 
-import "go_ww/string"
+import "go_ww/format"
 
 func main() {
 	//name1 := user.Hello()
@@ -19,5 +19,8 @@ func main() {
 	//number.LearnNumber()
 
 	//字符串类型
-	string2.LearnString()
+	//string2.LearnString()
+
+	//格式转换
+	format.Format()
 }
