@@ -422,3 +422,67 @@ func LearnString() {
 }
 ```
 
+### 格式输出
+
+```go
+package format
+
+import "fmt"
+
+// Website 结构体
+type Website struct {
+	Name string
+	Age  int
+}
+
+func Format() {
+	a := Website{
+		Name: "你好啊",
+		Age:  12,
+	}
+
+	b := true
+
+	number := 123
+
+	fmt.Printf("%v\n", a)      // {你好啊 12}
+	fmt.Printf("%#v\n", a)     // format.Website{Name:"你好啊", Age:12}
+	fmt.Printf("%T\n", number) // int 类型
+	fmt.Printf("%t\n", b)      // true
+}
+```
+
+### 运算符
+
+* 算数运算符
+* 关系运算符
+* 逻辑运算符
+* 位运算符
+* 赋值运算符
+* ++（自增）和 --（自减）在 go 语言中是单独的语句，并不是运算符
+
+```go
+package operator
+
+import "fmt"
+
+func Operator() {
+	a := 100
+	b := 200
+
+	c := a + b
+	c = a - b
+	c = a * b
+	c = a / b
+	fmt.Printf("%v\n", c)
+
+	/*
+	 + - * /
+	 == !=
+	 && || !
+	 =
+	 & | << >>
+	*/
+}
+```
+
