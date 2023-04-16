@@ -40,5 +40,8 @@ func main() {
 	//flow.BreakFlow()
 
 	//continue
-	flow.ContinueFlow()
+	//flow.ContinueFlow()
+
+	//goto
+	flow.GotoFlow()
 }

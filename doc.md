@@ -716,3 +716,35 @@ label:
 }
 ```
 
+**goto**
+
+* goto 语句通过标签进行代码间的无条件跳转，goto语句可以在快速跳出循环、避免重复退出上有一定的帮助。go语言中使用 goto 语句能简化一些代码的实现过程。例如双层嵌套的 for 循环要退出时
+
+```go
+package flow
+
+func GotoFlow() {
+	const num int = 1
+	if num == 2 {
+		println("2")
+	} else {
+		goto LABEL1
+	}
+
+	for i := 0; i < 10; i++ {
+		for j := 0; j < 10; j++ {
+			if i == 2 && j == 2 {
+				goto LABEL2
+			}
+		}
+	}
+
+	LABEL1:
+		println("goto跳过来了")
+		println("3")
+
+LABEL2:
+	println("goto2")
+}
+```
+
