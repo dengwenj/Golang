@@ -17,6 +17,8 @@ func fn2() {
 		println("大于三")
 	case num1 < 1:
 		println("小于一")
+	default:
+		println("默认值")
 	}
 }
 

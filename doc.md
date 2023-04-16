@@ -579,3 +579,27 @@ func SwitchFlow() {
 }
 ```
 
+**for**
+
+* Go 语言中的 for 循环，只有 for 关键字，去除了像其他语言中的 while 和 do while
+* 语法 ：for 初始语句; 条件表达式; 结束语句 { 循环体语句 }，不用加括号
+* for 循环可以通过 break、goto、return、 panic 语句强制退出循环
+
+```go
+package flow
+
+func ForFlow() {
+	for num := 0; num < 10; num++ {
+		println(num)
+	}
+
+	// 类似与 while 循环
+	num1 := 0
+	for num1 < 5 {
+		println(num1)
+		num1++
+	}
+	println(num1)
+}
+```
+

@@ -28,5 +28,8 @@ func main() {
 	//flow.IfFlow()
 
 	// switch
-	flow.SwitchFlow()
+	//flow.SwitchFlow()
+
+	// for
+	flow.ForFlow()
 }
