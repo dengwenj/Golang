@@ -37,5 +37,8 @@ func main() {
 	//flow.ForRangeFlow()
 
 	// break
-	flow.BreakFlow()
+	//flow.BreakFlow()
+
+	//continue
+	flow.ContinueFlow()
 }

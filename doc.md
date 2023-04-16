@@ -689,3 +689,30 @@ func BreakFlow() {
 }
 ```
 
+**continue**
+
+* continue 只能用在循环中，在 go 中只能用在 for 循环中，他可以终止本次循环，进行下一次循环，在 continue 语句后面添加标签时，表示开始标签对应的循环。
+
+```go
+package flow
+
+func ContinueFlow() {
+	for i := 0; i < 10; i++ {
+		println("i:", i)
+		if i == 2 {
+			continue
+		}
+	}
+
+label:
+	for v := 0; v < 5; v++ {
+		for j := 0; j < 5; j++ {
+			if v == 2 && j == 2 {
+				continue label
+			}
+			println(v, j)
+		}
+	}
+}
+```
+
