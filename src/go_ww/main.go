@@ -1,8 +1,6 @@
 package main
 
-import (
-	"go_ww/flow"
-)
+import "go_ww/flow"
 
 func main() {
 	//name1 := user.Hello()
@@ -26,5 +24,9 @@ func main() {
 	//格式转换
 	//format.Format()
 
-	flow.IfFlow()
+	// if else
+	//flow.IfFlow()
+
+	// switch
+	flow.SwitchFlow()
 }
