@@ -22,4 +22,13 @@ func IfFlow() {
 	//if number {
 	//
 	//}
+
+	var num int
+	fmt.Printf("请输入 num 值：")
+	fmt.Scan(&num)
+	if num%2 == 0 {
+		fmt.Printf("\n偶数")
+	} else {
+		fmt.Printf("\n奇数")
+	}
 }
