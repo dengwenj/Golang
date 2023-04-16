@@ -657,3 +657,35 @@ func ForRangeFlow() {
 }
 ```
 
+**break**
+
+* break语句可以结束for、switch和select的代码块
+* 单独在 select 中使用 break 和不使用  break 没有区别
+* 单独在表达式 switch 语句，并且没有 fallthough，使用 break 和不使用 break 没有啥区别
+* 单独在表达式 switch 语句，并且有 fallthough，使用 break 能够终止 fallthough后面的case语句的执行
+* 带标签的 break，可以跳出多层 select / switch 作用域。让 break 更加灵活，写法更加简单灵活，不需要使用控制变量一层一层跳出循环，没有带 break 的只能跳出当前语句块。
+
+```go
+package flow
+
+func BreakFlow() {
+	for i := 0; i < 10; i++ {
+		println(i)
+		if i == 3 {
+			break
+		}
+	}
+
+	num := 2
+	switch num {
+	case 1:
+		println(1)
+	case 2:
+		println(2)
+		break
+	default:
+		println("默认")
+	}
+}
+```
+
