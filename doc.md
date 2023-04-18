@@ -819,3 +819,43 @@ func Element() {
 }
 ```
 
+### 切片
+
+* 数组是固定长度，可以容纳相同数据类型的元素的集合。当长度固定时，使用还是带来一些限制，比如：我们申请的长度太大浪费内存，太小又不够用。
+* 鉴于上述原因，有了切片，可以把切片理解为可变长度的数组，它底层就是用数组实现的，增加了自动扩容功能，切片（slice）是一个拥有相同类型元素的可变长度的序列。
+* 声明一个切片和声明一个数组类似，只要不添加长度就行了 -> var identifier []type
+* 切片是引用类型，可以使用 **make**函数来创建切片：
+* var slice1 []type = make([]type, len)  -> slice := make([]type, len)
+* 也可以指定容量，其中 capacity 为可选参数   make([]T, length, capacity)
+* 这里 len 是数组的长度并且也是切片的初始长度
+* 切片拥有自己的长度和容量，可以通过使用内置的 len() 函数求长度，使用内置的 cap() 函数求切片的容量。
+
+```go
+package slice
+
+import "fmt"
+
+func Slice() {
+  // 切片（slice）是一个拥有相同类型元素的可变长度的序列。
+	// 声明切片
+	var s1 []string
+	var s2 = []int{1, 2, 3, 4, 5}
+	fmt.Printf("%v\n", s1)
+	fmt.Printf("%v\n", s2)
+
+	//使用 make 函数声明切片
+	s3 := make([]string, 2)
+	s3[0] = "李红"
+	s3[1] = "王波"
+	fmt.Printf("%v\n", s3)
+
+	s4 := make([]string, 3, 3)
+	s4[1] = "哈哈"
+	fmt.Printf("%v\n", s4) // [ "哈哈" ]
+	//切片长度
+	fmt.Printf("%v\n", len(s4)) // 3
+	//切片容量
+	fmt.Printf("%v\n", cap(s4)) // 3
+}
+```
+

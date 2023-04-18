@@ -1,6 +1,6 @@
 package main
 
-import "go_ww/arr"
+import "go_ww/slice"
 
 func main() {
 	//name1 := user.Hello()
@@ -47,5 +47,8 @@ func main() {
 
 	//数组
 	//arr.Array()
-	arr.Element()
+	//arr.Element()
+
+	//切片
+	slice.Slice()
 }
