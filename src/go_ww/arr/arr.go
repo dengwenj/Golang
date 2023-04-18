@@ -17,7 +17,9 @@ func Array() {
 	fmt.Println(arr4)
 
 	arr5 := [...]string{"李雷", "韩梅梅", "马伊琍"}
-	fmt.Println(arr5)
+	fmt.Println("arr5:", arr5)
+	var length = len(arr4)
+	fmt.Println("arr4的长度：", length)
 
 	arr6 := [...]int{1: 11, 3: 133}
 	fmt.Println(arr6)
