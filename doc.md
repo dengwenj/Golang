@@ -1,3 +1,7 @@
+
+
+
+
 ### Go 项目管理工具
 
 **go应用使用包和模块来组织代码，包对应到文件系统就是文件夹，模块就是.go的go源文件。一个包中会有多个模块，或者多个子包**
@@ -1012,6 +1016,51 @@ func LFunction() {
 
 	var d = f2(1, 2)
 	fmt.Printf("%v\n", d)
+}
+```
+
+* Go 语言中经常会使用其中一个返回值作为函数是否执行成功，是否有错误信息的判断条件，例如：return value, exists、return value, ok、return value, err 等
+* 当函数的返回值过多时，应该将这些返回值收集到容器中，然后以返回容器的方式去返回。例如，同类型的返回值可以放进 slice中，不同类型的返回值可以放进 map 中
+
+```go
+package function
+
+import "fmt"
+
+func f3() {
+	fmt.Printf("%v\n", "f1 没有返回值")
+}
+
+func f4() string {
+	return "有一个返回值"
+}
+
+func f5() (string, int) {
+	return "多个返回值", 2
+}
+
+func f6() (name string, age int) {
+	name = "邓文杰"
+	age = 23
+	return name, age
+}
+
+func f7() (name string, age int) {
+	name = "余华"
+	age = 18
+	return // 等价于 return name, age
+}
+
+func LFuncReturn() {
+	f3()
+	str := f4()
+	fmt.Printf("%v\n", str)
+	str1, n := f5()
+	fmt.Printf("%v\n%v\n", str1, n)
+	name, age := f6()
+	fmt.Printf("%v\n%v\n", name, age)
+	name1, age1 := f7()
+	fmt.Printf("%v\n%v\n", name1, age1)
 }
 ```
 

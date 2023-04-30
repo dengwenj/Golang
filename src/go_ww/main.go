@@ -62,5 +62,6 @@ func main() {
 	//_map.LMap()
 
 	//函数
-	function.LFunction()
+	//function.LFunction()
+	function.LFuncReturn()
 }
