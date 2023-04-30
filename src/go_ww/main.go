@@ -50,5 +50,8 @@ func main() {
 	//arr.Element()
 
 	//切片
-	slice.Slice()
+	//slice.Slice()
+
+	//初始化切片
+	slice.InitSlice()
 }
