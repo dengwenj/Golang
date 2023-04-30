@@ -1113,3 +1113,44 @@ func LFuncParams() {
 }
 ```
 
+**函数类型与函数变量**
+
+* 可以使用 type 关键字来定义一个函数类型，
+
+* ```go
+  type fun func(int, int) int
+  ```
+
+* 上面语句定义了一个 fun 函数类型，它是一个函数类型，这种函数接收两个 int 类型的参数并且返回一个 int 类型的返回值
+
+```go
+package function
+
+import "fmt"
+
+type fun func(int, int) int
+
+func f14(a int, b int) int {
+	return a + b
+}
+
+func f16(a int, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func LFuncType() {
+	var f15 fun
+	f15 = f14
+	num := f15(1, 2)
+	fmt.Printf("%v\n", num)
+
+	var f17 fun
+	f17 = f16
+	max := f17(1, 2)
+	fmt.Printf("%v\n", max)
+}
+```
+
