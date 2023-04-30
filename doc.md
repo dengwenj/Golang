@@ -1227,3 +1227,64 @@ func LFuncN() {
 }
 ```
 
+**闭包**
+
+* 闭包可以理解成定义在一个函数内部的函数，在本质上，闭包是将函数内部和函数外部连接起来的桥梁，或者说是函数和其引用环境的组合体
+* 闭包指的是一个函数和其相关的引用环境组合而成的实体，简单来说，**闭包 = 函数 + 引用环境**（重要）。这个变量不会销毁
+
+```go
+package function
+
+import "fmt"
+
+// 变量 numFn 是一个函数并且它引用了其外部作用域中的 x 变量，此时 numFn 就是第一个闭包，在 numFn  的生命周期内，变量 x 也一直有效
+func f20() func(int) int {
+	var x int
+	//用到了闭包 -> 闭包 = 函数 + 引用环境
+	return func(num int) int {
+		x += num
+		return x
+	}
+}
+
+type fn1 func(int) int
+
+func cal1(base int) (fn1, fn1) {
+	add := func(a int) int {
+		base += a
+		return base
+	}
+	sub := func(b int) int {
+		base -= b
+		return base
+	}
+	return add, sub
+}
+
+func LFuncClosure() {
+	//numFn := f20()
+	//n := numFn(10)
+	//fmt.Printf("%v\n", n) // 10
+	//n = numFn(20)
+	//fmt.Printf("%v\n", n) // 30
+	//n = numFn(30)
+	//fmt.Printf("%v\n", n) // 60
+	//
+	//numFn1 := f20()
+	//n2 := numFn1(100)
+	//fmt.Printf("%v\n", n2) // 100
+	//n2 = numFn1(200)
+	//fmt.Printf("%v\n", n2) // 300
+
+	add, sub := cal1(100)
+	res := add(1)
+	fmt.Printf("%v\n", res) // 101
+	res = sub(2)
+	fmt.Printf("%v\n", res) // 99
+	res = add(3)
+	fmt.Printf("%v\n", res) // 102
+	res = sub(4)
+	fmt.Printf("%v\n", res) // 98
+}
+```
+
