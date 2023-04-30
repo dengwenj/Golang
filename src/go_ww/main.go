@@ -53,5 +53,8 @@ func main() {
 	//slice.Slice()
 
 	//初始化切片
-	slice.InitSlice()
+	//slice.InitSlice()
+
+	//切片增删改查
+	slice.SliceCRUD()
 }

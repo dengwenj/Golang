@@ -22,4 +22,13 @@ func InitSlice() {
 	fmt.Printf("%v\n", s9)
 	fmt.Printf("%v\n", s10)
 	fmt.Printf("%v\n", s11)
+
+	//	遍历
+	for i := 0; i < len(s7); i++ {
+		fmt.Printf("%v\n", i)
+	}
+
+	for i, i2 := range s7 {
+		fmt.Printf("%v%v", i, i2)
+	}
 }
