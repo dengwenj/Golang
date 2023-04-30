@@ -1315,3 +1315,28 @@ func LFuncRuc() {
 }
 ```
 
+**defer语句**
+
+* go 语言中的 defer 语句会将其后面跟随的语句进行延迟处理，在 defer 归属的函数即将返回时，将延迟处理的语句按 defer 定义的逆序进行执行，也就是说，先被 defer 的语句最后被执行，最后被 defer 的语句，最先被执行
+* defer 特性：
+* 1、关键字 defer 用于注册延迟调用
+* 2、这些调用直到 return 前才被执行，因此可以用来做资源清理
+* 多个 defer 语句，按先进后出的方式执行 stack
+* defer 语句中的变量，在 defer 声明时就决定了
+* defer 用途：
+* 1、关闭文件句柄
+* 2、锁资源释放
+* 3、数据库连接释放
+
+```go
+package function
+
+func LFuncDefer() {
+	print("start...")
+	defer print("我是 defer1")
+	defer print("我是 defer2")
+	defer print("我是 defer3")
+	print("end...")
+}
+```
+
