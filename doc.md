@@ -1340,3 +1340,36 @@ func LFuncDefer() {
 }
 ```
 
+**init函数**
+
+* go 语言有一个特殊的函数 init 函数，先于 main 函数执行，实现包级别的一些初始化操作
+* init 函数的主要特点
+* 1、init 函数先于 main 函数自动执行，不能被其他函数调用
+* 2、init 函数没有输入参数、返回值
+* 3、每个包可以有多个 init 函数
+* 4、包的每个源文件也可以有多个 init 函数，这点比较特殊
+* 5、同一个包的 init 执行顺序，golang 没有明确定义，编程时要注意程序不要依赖这个执行顺序
+* 6、不同包的 init 函数按照包导入的依赖关系决定执行顺序
+* golang 初始化顺序：**变量初始化 -> init() -> main()**
+
+```go
+package main
+
+import "go_ww/function"
+
+var dwj = initVar()
+
+func init() {
+	println("我是初始化函数 init 系统调用的") // 第二
+}
+
+func initVar() string {
+	println("变量最先") // 第一
+	return "邓文杰"
+}
+
+func main() {
+	function.LFuncDefer() // 最后
+}
+```
+

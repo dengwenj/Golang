@@ -2,6 +2,17 @@ package main
 
 import "go_ww/function"
 
+var dwj = initVar()
+
+func init() {
+	println("我是初始化函数 init 系统调用的")
+}
+
+func initVar() string {
+	println("变量最先")
+	return "邓文杰"
+}
+
 func main() {
 	//name1 := user.Hello()
 	//fmt.Printf("name1: %v\n", name1)
