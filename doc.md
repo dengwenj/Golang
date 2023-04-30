@@ -1064,3 +1064,52 @@ func LFuncReturn() {
 }
 ```
 
+**go 函数的参数**
+
+* 函数可以有 0 或多个参数，参数需要指定数据类型
+* 声明函数时的参数列表叫做形参，调用时传递的参数叫做实参
+* go 语言是通过**传值的方式传参**，意味着传递给函数的是拷贝后的副本，所以函数内部访问，修改的也是这个副本
+* go 语言可以使用可变参数，有时候并不能确定参数的个数，可以使用变长参数，可以在函数定义语句的参数部分使用 args...type的方式。这时会将...代表的参数全部保存到一个名为 args 的 slice 中，注意这些参数的数据类型都是 type
+* **map、slice、interface、channel这些数据类型本身就是指针类型的，所以就算是拷贝值也是拷贝的指针，拷贝后的参数仍然指向底层数据结构，所以修改它们可能会影响外部数据结构的值**
+
+```go
+package function
+
+import "fmt"
+
+func f8(a int) {
+	a = 200
+}
+
+func f9(args ...int) {
+	fmt.Printf("%v\n%T", args, args)
+}
+
+func f10(name string, age int, args ...string) {
+	fmt.Printf("%v\n", name)
+	fmt.Printf("%v\n", age)
+
+	for i, v := range args {
+		fmt.Printf("%v\n%v\n", i, v)
+	}
+}
+
+func f11(s1 []int) {
+	s1[0] = 20000
+}
+
+func LFuncParams() {
+	i1 := 100
+	f8(i1)
+	fmt.Printf("%v\n", i1)
+
+	f9(1, 2, 3, 4, 5)
+
+	f10("邓文杰", 23, "韩梅梅", "李雷")
+
+	var s = []int{1, 2, 3, 4, 5}
+	f11(s)
+	fmt.Printf("%v\n", s)
+}
+```
+

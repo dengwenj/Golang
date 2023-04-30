@@ -63,5 +63,6 @@ func main() {
 
 	//函数
 	//function.LFunction()
-	function.LFuncReturn()
+	//function.LFuncReturn()
+	function.LFuncParams()
 }
