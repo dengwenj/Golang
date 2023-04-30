@@ -1,6 +1,6 @@
 package main
 
-import "go_ww/slice"
+import _map "go_ww/map"
 
 func main() {
 	//name1 := user.Hello()
@@ -56,5 +56,8 @@ func main() {
 	//slice.InitSlice()
 
 	//切片增删改查
-	slice.SliceCRUD()
+	//slice.SliceCRUD()
+
+	//map 类型
+	_map.LMap()
 }

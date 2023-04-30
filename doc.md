@@ -861,6 +861,8 @@ func Slice() {
 
 **切片初始化**
 
+* make() 函数的作用 -> 用于初始化[slice](https://so.csdn.net/so/search?q=slice&spm=1001.2101.3001.7020)、chan和map
+
 * 一个切片在末初始化之前默认为 nil，长度为 0，容量为 0
 
 ```go
@@ -931,6 +933,46 @@ func SliceCRUD() {
 	s2[0] = 5201
 	fmt.Printf("%v\n", s1)
 	fmt.Printf("%v\n", s2)
+}
+```
+
+### Map
+
+* map 是一种 key: value 键值对的数据结构容器，map 内部实现是哈希表（hash）。map 最重要的一点是通过 key 来快速检索数据，key 类似与索引，指向数据的值，map 是引用类型
+* map 的语法格式 var m map[key_data_type]value_data_type
+* 使用 make 函数初始化，m := make(map[key_data_type]value_data_type)
+* 判断某个键是否存在，v, ok := m[key]，如果 ok 为 true，存在，反之
+
+```go
+package _map
+
+import "fmt"
+
+func LMap() {
+	//var m map[string]string
+	// 需要通过make方法分配确定的内存地址
+	m := make(map[string]string)
+	fmt.Printf("%v\n", m) // map[]
+	m["name"] = "邓文杰"
+	fmt.Printf("%v\n", m) // map[name:邓文杰]
+
+	m2 := map[string]string{
+		"name":   "文杰",
+		"age":    "23",
+		"gender": "男",
+	}
+	fmt.Printf("%v\n", m2)
+	m2["hobby"] = "睡觉"
+	fmt.Printf("%v\n", m2)
+
+	//判断某个键是否存在
+	v, ok := m2["name"]
+	fmt.Printf("%v\n", v)  // 文杰
+	fmt.Printf("%v\n", ok) // true
+
+	v, ok = m2["ww"]
+	fmt.Printf("%v\n", v)
+	fmt.Printf("%v\n", ok) // false
 }
 ```
 
