@@ -65,5 +65,6 @@ func main() {
 	//function.LFunction()
 	//function.LFuncReturn()
 	//function.LFuncParams()
-	function.LFuncType()
+	//function.LFuncType()
+	function.LfuncG()
 }
