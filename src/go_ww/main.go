@@ -1,6 +1,6 @@
 package main
 
-import _map "go_ww/map"
+import "go_ww/function"
 
 func main() {
 	//name1 := user.Hello()
@@ -59,5 +59,8 @@ func main() {
 	//slice.SliceCRUD()
 
 	//map 类型
-	_map.LMap()
+	//_map.LMap()
+
+	//函数
+	function.LFunction()
 }
