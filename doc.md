@@ -1288,3 +1288,30 @@ func LFuncClosure() {
 }
 ```
 
+**递归**
+
+* 函数内部调用函数自身的函数称为递归函数
+* 使用递归函数最重要的三点：
+* 1、递归就是自己调用自己
+* 2、必须先定义函数的退出条件，没有退出条件，递归将成为死循环
+* 3、go 语言递归函数很可能会产生一大堆的 goroutine，也很可能会痴线栈空间内存溢出问题
+
+```go
+package function
+
+import "fmt"
+
+func f21(n int) int {
+	if n == 1 {
+		return 1
+	}
+	// 函数调用栈，后进先出，上面的函数执行完先销毁
+	return n * f21(n-1)
+}
+
+func LFuncRuc() {
+	i := f21(5)
+	fmt.Printf("%v\n", i) // 120
+}
+```
+
