@@ -1939,3 +1939,65 @@ func LInterfaceReceiverType() {
 }
 ```
 
+* 当一个变量为接口类型，1.实现类的方法接收者都是值类型，可以把具体实现类的值或者指针赋值给这个变量，然后调用实现方法。2. 当实现类中只要有一个方法接收者定义为指针，只能把指针赋值给这个变量，调用方法。
+
+**接口和类型的关系**
+
+* 一个类型可以实现多个接口
+* 多个类型可以实现同一个接口（多态）
+
+```go
+package _interface
+
+import "fmt"
+
+// Pet1 一个类型可以实现多个接口
+type Pet1 interface {
+	p1()
+}
+type Pet2 interface {
+	p2()
+}
+
+// I1 一个接口可以被多个类型实现
+type I1 interface {
+	say()
+}
+
+type Ppp struct {
+}
+
+type S1 struct {
+}
+type S2 struct {
+}
+
+func (p Ppp) p1() {
+	fmt.Printf("%v\n", "11")
+}
+
+func (p Ppp) p2() {
+	fmt.Printf("%v\n", "22")
+}
+
+func (s S1) say() {
+	println("斤1")
+}
+func (s S2) say() {
+	println("进2")
+}
+
+func LInterfaceType() {
+	//var pp Pet1 = Ppp{}
+	//var ppp Pet2 = Ppp{}
+	//pp.p1()
+	//ppp.p2()
+
+	var i I1
+	i = S1{}
+	i.say()
+	i = S2{}
+	i.say()
+}
+```
+
