@@ -6,6 +6,7 @@ type USB interface {
 	write()
 }
 
+// Computer M 它们用了共同的方法
 type Computer struct {
 	Name string
 }
@@ -36,6 +37,7 @@ func LInterface() {
 		Name: "电脑",
 	}
 	//var u USB = c
+	// 用的时候以接口为类型，用结构体初始化
 	var u USB = Computer{
 		Name: "电脑",
 	}

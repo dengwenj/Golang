@@ -100,5 +100,6 @@ func main() {
 	//_struct.LStructMethodArgs()
 
 	// 接口
-	_interface.LInterface()
+	//_interface.LInterface()
+	_interface.LInterfaceReceiverType()
 }

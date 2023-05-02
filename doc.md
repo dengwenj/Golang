@@ -1829,7 +1829,7 @@ func LStructMethodArgs() {
 
 ### interface
 
-* go 语言中的接口，是一种新的类型定义，它把所有的具有共性的方法定义在一起，任何其他类型只要实现了这些方法就是实现了这个接口。
+* go 语言中的接口，是一种新的类型定义，它把所有的具有共性的方法定义在一起，**任何其他类型只要实现了这些方法就是实现了这个接口**。
 
 ```go
 package _interface
@@ -1884,6 +1884,58 @@ func LInterface() {
 func test(u USB) {
 	u.read()
 	u.write()
+}
+```
+
+**go 接口值类型接收者和指针类型接收者**
+
+* 本质上和方法的值类型接收者和指针类型接收者的思考方法是一样的
+
+```go
+package _interface
+
+import "fmt"
+
+type Pet interface {
+	eat()
+	say()
+}
+
+type Cat struct {
+	Name string
+}
+
+//func (c Cat) eat() {
+//	c.Name = "tom"
+//}
+//
+//func (c Cat) say() {
+//	c.Name = "kk"
+//}
+
+func (c Cat) eat() {
+	c.Name = "tom"
+}
+
+func (c *Cat) say() {
+	c.Name = "kk"
+}
+
+func LInterfaceReceiverType() {
+	c := Cat{
+		Name: "mm",
+	}
+	//var p Pet = c
+	//p.eat()
+	//p.say()
+	//
+	//fmt.Printf("%v\n", c) // {mm}
+
+	var p Pet = &c
+	p.eat()
+	p.say()
+
+	fmt.Printf("%v\n", c) // {kk}
 }
 ```
 
