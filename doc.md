@@ -1706,3 +1706,70 @@ func LStructQ() {
 }
 ```
 
+### go 语言方法
+
+* go 语言没有面向对象的特性，也没有类对象的概念，但是，可以使用结构体来模拟这些特性，我们都知道面向对象里面有类方法等概念，我们也可以声明一些方法，属于某个结构体
+
+* go 中的方法，是一种特殊的函数，定义于 struct 之上（与 struct 关联、绑定），被称为 struct 的接受者（receiver）。通俗的讲，方法就是有接收者的函数。
+
+* ```go
+  type Person struct {
+  	name string
+  }
+  func (p Person) eat() {}
+  func (p Person) say() {}
+  ```
+
+* p：接收该方法的结构体
+
+```go
+package _struct
+
+import "fmt"
+
+type Person3 struct {
+	name string
+	say  func()
+}
+
+// 结构体方法，struct 的接收者
+func (p Person3) eat() {
+	fmt.Printf("%v\n", p.name)
+	fmt.Printf("%v\n", "我是Person3 结构体的方法")
+}
+
+func (p Person3) login(username string, password string) bool {
+	if username == "邓文杰" && password == "123456" {
+		fmt.Printf("%v\n", p.name)
+		return true
+	}
+	return false
+}
+
+func LStructMethod() {
+	p1 := Person3{
+		name: "邓文杰",
+		say: func() {
+			// 这样写拿不到属性，?目前不知道
+			println("进")
+		},
+	}
+	p1.eat()
+	p1.say()
+
+	isT := p1.login("邓文杰", "123456")
+	if isT {
+		println("登录成功")
+	} else {
+		println("用户名或密码错误")
+	}
+}
+```
+
+* Go 语言方法的注意事项
+* 1、方法的 receiver type 并非一定要是 struct 类型，type 定义的类型别名、slice、map、channel、func 类型等都可以
+* 2、struct 结合它的方法就等价于面向对象中的类。只不过 struct 可以和它的方法分开，并非一定要属于同一个文件，但必须属于同一个包。
+* 3、方法有两种接收类型：（T Type）和（T *Type）,它们之间有区别
+* 4、方法就是函数，所以go中没有方法重载（overload）的说法，也就是说同一个类型中的所有方法名必须都唯一。
+* 5、如果 receiver 是一个指针类型，则会自动解除引用。
+* 6、方法和 type 是分开的，意味着实例的行为和数据存储是分开的，但是它们通过 receiver 建立起关联关系。
