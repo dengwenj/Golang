@@ -1487,3 +1487,57 @@ func LTypeDefine() {
 }
 ```
 
+### 结构体
+
+* go 语言中没有面向对象的概念，但是可以使用结构体来实现， 面向对象编程的一些特性：继承、组合等特性
+
+* go 语言结构体的定义，结构体的定义和类型定义差不多，只不过多了一个 struct 关键字
+
+* ```go
+  type struct_variable_type struct {
+  	name string
+  	age int
+  }
+  ```
+
+* 同类型的可以放在一起
+
+* ```go
+  type Person struct {
+  	name, email string
+  	age int
+  }
+  ```
+
+```go
+package _struct
+
+import "fmt"
+
+type Person struct {
+	name, email string
+	age         int
+}
+
+func LStruct() {
+	var s Person
+	
+	fmt.Printf("%v\n", s) // {  0}
+
+	s.name = "邓文杰"
+	s.age = 23
+	s.email = "coderdwj@163.com"
+
+	fmt.Printf("%v\n", s) // {邓文杰 coderdwj@163.com 23}
+
+	//	匿名结构体
+	var dwj struct {
+		age   int
+		hobby []string
+	}
+	dwj.age = 18
+	dwj.hobby = []string{"社会人", "睡觉"}
+	fmt.Printf("%v\n", dwj) // {18 [社会人 睡觉]}
+}
+```
+

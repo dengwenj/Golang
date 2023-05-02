@@ -1,6 +1,6 @@
 package main
 
-import _type "go_ww/type"
+import _struct "go_ww/struct"
 
 var dwj = initVar()
 
@@ -88,5 +88,8 @@ func main() {
 	//pointer.LPointerArr()
 
 	//类型
-	_type.LTypeDefine()
+	//_type.LTypeDefine()
+
+	//	结构图
+	_struct.LStruct()
 }
