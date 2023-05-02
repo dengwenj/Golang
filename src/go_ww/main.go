@@ -1,6 +1,6 @@
 package main
 
-import "go_ww/pointer"
+import _type "go_ww/type"
 
 var dwj = initVar()
 
@@ -85,5 +85,8 @@ func main() {
 
 	//指针
 	//pointer.LPointer()
-	pointer.LPointerArr()
+	//pointer.LPointerArr()
+
+	//类型
+	_type.LTypeDefine()
 }
