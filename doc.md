@@ -1771,5 +1771,59 @@ func LStructMethod() {
 * 2、struct 结合它的方法就等价于面向对象中的类。只不过 struct 可以和它的方法分开，并非一定要属于同一个文件，但必须属于同一个包。
 * 3、方法有两种接收类型：（T Type）和（T *Type）,它们之间有区别
 * 4、方法就是函数，所以go中没有方法重载（overload）的说法，也就是说同一个类型中的所有方法名必须都唯一。
-* 5、如果 receiver 是一个指针类型，则会自动解除引用。
+* 5、如果 receiver 是一个指针类型，则会自动解除引用->(*p).name
 * 6、方法和 type 是分开的，意味着实例的行为和数据存储是分开的，但是它们通过 receiver 建立起关联关系。
+
+**go方法接收者类型**
+
+* 结构体实例，有值类型和指针类型，那么方法的接收者是结构体，那么也有值类型和指针类型。区别就是接收者是否复制结构体副本。值类型复制，指针类型不复制。
+
+```go
+package _struct
+
+import "fmt"
+
+type Person4 struct {
+	name string
+}
+
+// 值类型
+func (p Person4) who() {
+	p.name = "不会修改"
+}
+
+// 指针类型
+func (p *Person4) who2() {
+	// p.name 自动解引用
+	// (*p).name = "会修改"
+	p.name = "会修改"
+}
+
+func test(p1 Person4) {
+	p1.name = "不会修改"
+}
+
+func test3(p1 *Person4) {
+	p1.name = "会修改哦"
+}
+
+func LStructMethodArgs() {
+	p := Person4{
+		"邓文杰",
+	}
+	p.who()
+	fmt.Printf("%v\n", p) // {邓文杰}
+	p.who2()
+	fmt.Printf("%v\n", p) // {会修改}
+
+	p1 := Person4{
+		"莫言",
+	}
+	test(p1)
+	fmt.Printf("%v\n", p1) // {莫言}
+
+	test3(&p1)
+	fmt.Printf("%v\n", p1) // {会修改哦}
+}
+```
+

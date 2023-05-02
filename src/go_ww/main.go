@@ -96,5 +96,6 @@ func main() {
 	//_struct.LStructPointer()
 	//_struct.LStructParams()
 	//_struct.LStructQ()
-	_struct.LStructMethod()
+	//_struct.LStructMethod()
+	_struct.LStructMethodArgs()
 }
