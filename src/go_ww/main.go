@@ -1,6 +1,6 @@
 package main
 
-import "go_ww/function"
+import "go_ww/pointer"
 
 var dwj = initVar()
 
@@ -81,5 +81,8 @@ func main() {
 	//function.LFuncN()
 	//function.LFuncClosure()
 	//function.LFuncRuc()
-	function.LFuncDefer()
+	//function.LFuncDefer()
+
+	//指针
+	pointer.LPointer()
 }
