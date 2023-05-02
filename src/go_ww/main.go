@@ -90,6 +90,7 @@ func main() {
 	//类型
 	//_type.LTypeDefine()
 
-	//	结构图
-	_struct.LStruct()
+	//	结构体
+	//_struct.LStruct()
+	_struct.LStructInit()
 }
