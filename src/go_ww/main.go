@@ -92,5 +92,6 @@ func main() {
 
 	//	结构体
 	//_struct.LStruct()
-	_struct.LStructInit()
+	//_struct.LStructInit()
+	_struct.LStructPointer()
 }
