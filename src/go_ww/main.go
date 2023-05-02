@@ -84,5 +84,6 @@ func main() {
 	//function.LFuncDefer()
 
 	//指针
-	pointer.LPointer()
+	//pointer.LPointer()
+	pointer.LPointerArr()
 }
