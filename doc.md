@@ -1672,3 +1672,37 @@ func LStructParams() {
 }
 ```
 
+**结构体嵌套**
+
+* go语言没有面向对象编程的思想，也没有继承关系，但是可以通过结构体嵌套来实现这种效果
+
+```go
+package _struct
+
+import "fmt"
+
+func LStructQ() {
+	//结构体嵌套
+	type Dog struct {
+		name  string
+		color string
+	}
+
+	type Person struct {
+		name string
+		age  int
+		dog  Dog
+	}
+
+	p := Person{
+		name: "莫言",
+		age:  18,
+		dog: Dog{
+			"小花",
+			"红色",
+		},
+	}
+	fmt.Printf("%v\n", p) // {莫言 18 {小花 红色}}
+}
+```
+
