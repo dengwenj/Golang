@@ -1,6 +1,6 @@
 package main
 
-import _struct "go_ww/struct"
+import _interface "go_ww/interface"
 
 var dwj = initVar()
 
@@ -97,5 +97,8 @@ func main() {
 	//_struct.LStructParams()
 	//_struct.LStructQ()
 	//_struct.LStructMethod()
-	_struct.LStructMethodArgs()
+	//_struct.LStructMethodArgs()
+
+	// 接口
+	_interface.LInterface()
 }
