@@ -2099,3 +2099,6 @@ func LInterfaceOCP() {
 }
 ```
 
+**go 模拟 oop 的属性和方法**
+
+* go 没有面向对象的概念，也没有封装的概念，但是可以通过结构体 struct 和函数绑定来实现 oop 的属性和方法等特性，接收者 receiver 方法。
