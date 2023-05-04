@@ -2102,3 +2102,84 @@ func LInterfaceOCP() {
 **go 模拟 oop 的属性和方法**
 
 * go 没有面向对象的概念，也没有封装的概念，但是可以通过结构体 struct 和函数绑定来实现 oop 的属性和方法等特性，接收者 receiver 方法。
+
+```go
+package _interface
+
+type Person2 struct {
+	// 大写外面包可以访问，小写不可以
+	name string
+	age  int
+}
+
+func (p Person2) eat() {
+	println("我可以吃")
+}
+func (p Person2) work() {
+	println("我可以工作")
+}
+
+func LStructOOP() {
+	p := Person2{
+		name: "dengWJ",
+		age:  18,
+	}
+	p.eat()
+	p.work()
+}
+```
+
+### 模拟继承
+
+* golang 本质上没有 oop 的概念，也没有继承的概念，但是可以通过结构体嵌套实现这个特性
+
+```go
+package _interface
+
+import "fmt"
+
+type An struct {
+	name string
+	age  int
+}
+
+func (a An) eat(string2 string) {
+	println(string2 + "实现继承")
+}
+func (a An) sleep(string2 string) {
+	println(string2 + "实现继承 sleep")
+}
+
+type Cat3 struct {
+	color string
+	An    // 实现了继承
+}
+
+type Dog3 struct {
+	ddd string
+	An
+}
+
+// LStructExtends 实现继承
+func LStructExtends() {
+	c := Cat3{
+		"白色",
+		An{name: "小猫", age: 3},
+	}
+	fmt.Printf("%v\n", c.color)
+	c.eat("猫猫")
+	c.sleep("猫猫")
+
+	d := Dog3{
+		"ddd",
+		An{
+			name: "小狗",
+			age:  4,
+		},
+	}
+	fmt.Printf("%v\n", d.ddd)
+	d.eat("狗狗")
+	d.sleep("狗狗")
+}
+```
+

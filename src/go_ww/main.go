@@ -105,5 +105,6 @@ func main() {
 	//_interface.LInterfaceType()
 	//_interface.LInterfaceCompose()
 	//_interface.LInterfaceOCP()
-	_interface.LStructOOP()
+	//_interface.LStructOOP()
+	_interface.LStructExtends()
 }
