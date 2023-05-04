@@ -16,7 +16,7 @@ func (a An) sleep(string2 string) {
 
 type Cat3 struct {
 	color string
-	An    // 实现了继承
+	An    // 实现了继承, 可以匿名，不用加名称，赋值依次写
 }
 
 type Dog3 struct {
