@@ -102,5 +102,6 @@ func main() {
 	// 接口
 	//_interface.LInterface()
 	//_interface.LInterfaceReceiverType()
-	_interface.LInterfaceType()
+	//_interface.LInterfaceType()
+	_interface.LInterfaceCompose()
 }

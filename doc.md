@@ -1945,6 +1945,7 @@ func LInterfaceReceiverType() {
 
 * 一个类型可以实现多个接口
 * 多个类型可以实现同一个接口（多态）
+* 结构体实现接口里面的方法
 
 ```go
 package _interface
@@ -1998,6 +1999,46 @@ func LInterfaceType() {
 	i.say()
 	i = S2{}
 	i.say()
+}
+```
+
+**接口嵌套**
+
+```go
+package _interface
+
+type Flyer interface {
+	fly()
+}
+
+type Swimmer interface {
+	swim()
+}
+
+type FlyFish interface {
+	Flyer
+	Swimmer
+}
+
+type Fish struct {
+	Name string
+}
+
+func (f Fish) fly() {
+	println("我是飞")
+}
+
+func (f Fish) swim() {
+	println("我是鱼")
+	f.Name = "我啥谁"
+}
+
+func LInterfaceCompose() {
+	// 接口类型
+	var f FlyFish
+	f = &Fish{}
+	f.swim()
+	f.fly()
 }
 ```
 
