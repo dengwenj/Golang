@@ -2220,3 +2220,36 @@ func LConstruct() {
 }
 ```
 
+### golang 包
+
+* 包可以区分命名空间（一个文件夹中不能有两个同名文件），也可以更好的管理项目。go 中创建一个包，一般是创建一个文件夹，在该文件夹里面的 go 文件中，使用 package 关键字声明包名称，通常，文件夹名称和包名称相同，并且，同一个文件下面只有一个包。
+
+* 创建包：
+
+* 1、创建一个名为 dao 的文件夹
+
+* 2、创建一个 dao.go 文件
+
+* 3、在该文件中声明包
+
+* ```go
+  package dao
+  import "fmt"
+  func Test1() {}
+  ```
+
+* 导入包，要使用某个包下面的变量或者方法，需要导入该包，导入包时，要导入从 `GOPATH`开始的包路径，例如，在 service.go 中导入 dao 包。
+
+* 包注意事项
+
+* 1、一个文件夹下只能有一个 package
+
+  * `import`后面的其实是 `GOPATH`开始的相对目录路径，包括最后一段，但由于一个目录下只能有一个 package，所以 import 一个路径就等于是 import 了这个路径下的包。
+  * 注意，这里指的是“直接包含”的 go 文件，如果有子目录，那么子目录的父目录是完全两个包。
+
+* 比如实现了一个计数器 package，名叫 calc，位于 calc 目录下，但又想给别人一个使用范例，于是在 calc下可以建个 example 子目录（calc/example/），这个子目录里有个 example.go（calc/example/example.go）。此时，example.go可以是 main 包，里面还可以有个 main 函数。
+
+* 一个 package 的文件不能在多个文件夹下
+
+  * 如果多个文件夹下有重名的 package，它们其实是彼此无关的 package
+  * 如果一个 go 文件需要同时使用不同目录下的同名 package，需要在 improt 这些目录时为每个目录指定一个 package 的别名。
