@@ -103,5 +103,6 @@ func main() {
 	//_interface.LInterface()
 	//_interface.LInterfaceReceiverType()
 	//_interface.LInterfaceType()
-	_interface.LInterfaceCompose()
+	//_interface.LInterfaceCompose()
+	_interface.LInterfaceOCP()
 }

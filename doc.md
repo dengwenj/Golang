@@ -2042,3 +2042,60 @@ func LInterfaceCompose() {
 }
 ```
 
+**go 通过接口实现 ocp 设计原则**
+
+* 面向对象的可复用设计的第一块基石，便是所谓的“开-闭”原则（Open-Closed Principle，常缩写为 ocp）。虽然，go 不是面向对象语言，但是也可以模拟实现这个原则，对 **扩展**是开放的，对**修改**是关闭的
+
+```go
+package _interface
+
+import "fmt"
+
+type Animal interface {
+	eat(string) string
+	say()
+}
+
+type Dog struct {
+	Name string
+}
+
+type Cat1 struct {
+	Name string
+}
+
+type Person struct {
+	Name string
+}
+
+func (d Dog) eat(e string) string {
+	d.Name = "狗狗"
+	println("我是狗狗 eat")
+	return e
+}
+func (d Dog) say() {
+	println("我是狗狗 say")
+}
+
+func (c Cat1) eat(string2 string) string {
+	println("我是猫猫 eat")
+	return string2
+}
+
+func (c Cat1) say() {
+	println("我是猫猫 say")
+}
+
+func (p Person) pp(a Animal) {
+	fmt.Printf("%v\n%T\n", a, a)
+	a.eat("狗狗")
+	a.say()
+}
+
+func LInterfaceOCP() {
+	p := Person{}
+	p.pp(new(Dog))
+	p.pp(new(Cat1))
+}
+```
+
