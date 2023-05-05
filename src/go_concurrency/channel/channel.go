@@ -14,6 +14,7 @@ func testChannel() {
 
 // Channel 主协程
 func Channel() {
+	defer close(c)
 	//开启协程
 	go testChannel()
 
