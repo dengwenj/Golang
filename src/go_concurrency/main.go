@@ -1,9 +1,13 @@
 package main
 
 import (
-	"dengwj_concurrency/goroutines"
+	"dengwj_concurrency/channel"
 )
 
 func main() {
-	goroutines.Goroutines()
+	//协程
+	//goroutines.Goroutines()
+
+	//通道
+	channel.Channel()
 }
