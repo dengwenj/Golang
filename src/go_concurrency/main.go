@@ -1,6 +1,6 @@
 package main
 
-import "dengwj_concurrency/waitgroup"
+import runtimedwj "dengwj_concurrency/runtime"
 
 func main() {
 	//协程
@@ -10,5 +10,8 @@ func main() {
 	//channel.Channel()
 
 	//	WaitGroup
-	waitgroup.WaitGroup()
+	//waitgroup.WaitGroup()
+
+	//	runtime 包关于协程的 api
+	runtimedwj.RunTime()
 }
