@@ -1,6 +1,6 @@
 package main
 
-import "dengwj_concurrency/mutex"
+import "dengwj_concurrency/channel"
 
 func main() {
 	//协程
@@ -16,5 +16,8 @@ func main() {
 	//runtimedwj.RunTime()
 
 	//mutex 互斥锁实现同步
-	mutex.LMutex()
+	//mutex.LMutex()
+
+	//通道遍历
+	channel.LChannelReadWrite()
 }
