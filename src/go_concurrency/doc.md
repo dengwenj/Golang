@@ -278,3 +278,99 @@ func LChannelReadWrite() {
 }
 ```
 
+# Golang中channel有缓冲与无缓冲的区别
+
+## 无缓冲
+
+1、定义时若未指定缓冲大小或设置为0，表示当前chan无缓冲。
+2、在向chan写入数据时，会阻塞当前协程，直到其他协程从该chan中读取了数据。
+3、基于定义2规则，无缓冲chan不能在一个协程同时进行读取与写入操作。
+4、应用场景：主任务需要等待子任务的执行结果，可以使用无缓冲chan，主任务会阻塞等待子任务的执行结果写入chan后再继续执行当前业务逻辑。
+5、chan可以进行多次的读写操作，可以在一个协程中生产多个数据，另一个协程中消费多个数据。
+
+```go
+func main() {
+	c1 := make(chan string)
+	go func() {
+		fmt.Println("the will send data to chan")
+		time.Sleep(time.Second * 1)
+		c1 <- "string"
+	}()
+
+	// c1是无缓冲chan，此次会阻塞等待c1写入数据
+	time.Sleep(time.Second * 2)
+	s1 := <-c1
+	fmt.Println("receive data with ", s1)
+}
+```
+
+## 有缓冲
+
+1、定义时需指定缓冲大小且大于0.
+2、向chan写入数据时，若chan未满不会阻塞协程，满时阻塞线程直至缓冲有空间可写入。
+3、写chan读取数据亦然。
+
+```go
+unc main() {
+	c1 := make(chan string, 2)
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println("the will send data to chan")
+			// 当缓冲区满时，此时写入会阻塞
+			c1 <- "string1"
+		}
+	}()
+
+	for i := 0; i < 10; i++ {
+		time.Sleep(time.Second * 1)
+		// 当缓冲区空时，此时读取会阻塞
+		s1 := <-c1
+		fmt.Println("receive data with ", s1)
+	}
+}
+```
+
+### golang 并发编程之 select
+
+* select是 go 中的一个控制结构，类似于 switch 语句，用于处理异步 IO 操作，select 会监听 case 语句中 channel 的读写操作，当 case中 channel 读写操作为非阻塞状态（即能读写）时，将会触发相应的动作。
+* select 中的 case 语句必须是一个 channel 操作
+* select 中的 default 子句总是可运行的
+* 如果有多个 case 都可以运行，select 会随机公平的选出一个执行，其他不会执行
+* 如果没有可运行的 case 语句，且有 default 语句，那么就会执行 default 的动作
+* 如果没有可运行的 case 语句，且没有 default语句，select将阻塞，直到某个 case 通信可以运行
+* 通道关闭后，会随机进入一个 case，读出来的会是默认值。通道没关闭，会进入 default，通道没关闭并且没写 default 会死锁
+
+```go
+package _select
+
+import (
+	"fmt"
+	"time"
+)
+
+func LSelect() {
+	cI := make(chan int)
+	cS := make(chan string)
+
+	go func() {
+		cI <- 1
+		cS <- "邓文杰"
+
+		defer close(cI)
+		defer close(cS)
+	}()
+
+	for {
+		select {
+		case cIData := <-cI:
+			fmt.Printf("%v\n", cIData)
+		case cSData := <-cS:
+			fmt.Printf("%v\n", cSData)
+		default:
+			fmt.Printf("%v\n", "default")
+		}
+		time.Sleep(time.Second)
+	}
+}
+```
+

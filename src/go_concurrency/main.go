@@ -1,6 +1,6 @@
 package main
 
-import "dengwj_concurrency/channel"
+import _select "dengwj_concurrency/select"
 
 func main() {
 	//协程
@@ -19,5 +19,8 @@ func main() {
 	//mutex.LMutex()
 
 	//通道遍历
-	channel.LChannelReadWrite()
+	//channel.LChannelReadWrite()
+
+	//select
+	_select.LSelect()
 }
