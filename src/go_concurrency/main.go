@@ -1,6 +1,6 @@
 package main
 
-import runtimedwj "dengwj_concurrency/runtime"
+import "dengwj_concurrency/mutex"
 
 func main() {
 	//协程
@@ -13,5 +13,8 @@ func main() {
 	//waitgroup.WaitGroup()
 
 	//	runtime 包关于协程的 api
-	runtimedwj.RunTime()
+	//runtimedwj.RunTime()
+
+	//mutex 互斥锁实现同步
+	mutex.LMutex()
 }
