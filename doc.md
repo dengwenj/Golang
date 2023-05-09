@@ -2253,3 +2253,45 @@ func LConstruct() {
 
   * 如果多个文件夹下有重名的 package，它们其实是彼此无关的 package
   * 如果一个 go 文件需要同时使用不同目录下的同名 package，需要在 improt 这些目录时为每个目录指定一个 package 的别名。
+
+go mod tidy 下载依赖
+
+### golang 包管理工具 go module
+
+* go module 是 golang 1.11 新加的特性，用来管理模块中包的依赖关系
+* go mod 使用方法
+* 初始化模块：go mod init <项目模块名称>
+* 依赖关系处理，根据 go.mod 文件：go mod tidy
+* 将依赖包复制到项目下的 vendor 目录：go mod vendor，如果包被屏蔽（墙），可以使用这个命令，随后使用 go build -mod=vendor 编译
+* 显示依赖关系：go list -m all
+* 显示详细依赖关系：go list -m -json all
+* 下载依赖 go mod download [path@version]，[path@version]是非必须的
+
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"net/http"
+
+	"dengwj.vip/module/services"
+)
+
+func main() {
+	println("hello world")
+
+	services.TestUser()
+	services.TestLogin()
+	fmt.Printf("%v\n", "你好")
+
+	r := gin.Default()
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "pong",
+		})
+	})
+	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+}
+```
+
