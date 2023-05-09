@@ -1,6 +1,6 @@
 package main
 
-import _select "dengwj_concurrency/select"
+import "dengwj_concurrency/timer"
 
 func main() {
 	//协程
@@ -22,5 +22,8 @@ func main() {
 	//channel.LChannelReadWrite()
 
 	//select
-	_select.LSelect()
+	//_select.LSelect()
+
+	//timer
+	timer.LTimer()
 }
