@@ -1,6 +1,6 @@
 package main
 
-import "dengwj_concurrency/timer"
+import "dengwj_concurrency/ticker"
 
 func main() {
 	//协程
@@ -25,5 +25,8 @@ func main() {
 	//_select.LSelect()
 
 	//timer
-	timer.LTimer()
+	//timer.LTimer()
+
+	//	ticker
+	ticker.LTicker()
 }

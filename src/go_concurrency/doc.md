@@ -280,7 +280,7 @@ func LChannelReadWrite() {
 
 # Golang中channel有缓冲与无缓冲的区别
 
-## 无缓冲
+## 无缓冲(通道写入没有取出会一直阻塞，写入要在读之前)
 
 1、定义时若未指定缓冲大小或设置为0，表示当前chan无缓冲。
 2、在向chan写入数据时，会阻塞当前协程，直到其他协程从该chan中读取了数据。
@@ -412,6 +412,55 @@ func LTimer() {
 	//timer.Reset(time.Second)
 	<-timer.C
 	fmt.Printf("%v\n", "等等多少秒")
+}
+```
+
+### golang并发编程之 ticker
+
+* timer只执行一次，ticker 可以周期的执行
+
+```go
+package ticker
+
+import (
+	"fmt"
+	"time"
+)
+
+func LTicker() {
+	//ticker := time.NewTicker(time.Second)
+	//
+	//sum := 0
+	//for {
+	//	t := <-ticker.C
+	//	fmt.Printf("%v\n", t)
+	//	sum++
+	//	if sum >= 3 {
+	//		break
+	//	}
+	//}
+
+	ticker := time.NewTicker(time.Second)
+	chanInt := make(chan int)
+
+	go func() {
+		for _ = range ticker.C {
+			select {
+			case chanInt <- 1:
+			case chanInt <- 2:
+			case chanInt <- 3:
+			}
+		}
+	}()
+
+	sum := 0
+	for i := range chanInt {
+		fmt.Printf("%v\n", i)
+		sum += i
+		if sum >= 10 {
+			break
+		}
+	}
 }
 ```
 
