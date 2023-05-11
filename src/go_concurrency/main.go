@@ -31,5 +31,6 @@ func main() {
 	//ticker.LTicker()
 
 	//	atomic
-	atomic.LAtomic()
+	//atomic.LAtomic()
+	atomic.LAtomicDetail()
 }

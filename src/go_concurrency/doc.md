@@ -466,6 +466,8 @@ func LTicker() {
 
 ### golang 并发编程之原子变量的引入
 
+* 原子操作即是进行过程中不能被中断的操作 
+
 ```go
 package atomic
 
@@ -507,6 +509,30 @@ func LAtomic() {
 	}
 
 	time.Sleep(time.Second * 2)
+	println(num)
+}
+```
+
+### golang并发编程之原子操作详解
+
+* atomic 提供的原子操作能够确保任一时刻只有一个 协程对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作
+* atomic 常见操作有：
+* 增减、载入(读)、比较并交换 cas、交换、存储
+
+```go
+package atomic
+
+import "sync/atomic"
+
+func LAtomicDetail() {
+	var num int32 = 100
+
+	//atomic.AddInt32(&num, 1)
+	//atomic.AddInt32(&num, -1)
+	//atomic.LoadInt32(&num) // 读
+	//atomic.StoreInt32(&num, 200) // 存
+	//比较交换
+	atomic.CompareAndSwapInt32(&num, num, 300) // 300
 	println(num)
 }
 ```

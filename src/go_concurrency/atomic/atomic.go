@@ -11,7 +11,7 @@ var num int32 = 100 // 原子变量，这个变量是个原子的
 func add() {
 	//原子变量的方式
 	// atomic 原子操作
-	atomic.AddInt32(&num, 1)
+	atomic.AddInt32(&num, 1) // 对这变量进行操作的时候保证他的线程安全
 }
 
 func sub() {
