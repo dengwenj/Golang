@@ -1,6 +1,6 @@
 package main
 
-import "dengwj_concurrency/ticker"
+import "dengwj_concurrency/atomic"
 
 func main() {
 	//协程
@@ -28,5 +28,8 @@ func main() {
 	//timer.LTimer()
 
 	//	ticker
-	ticker.LTicker()
+	//ticker.LTicker()
+
+	//	atomic
+	atomic.LAtomic()
 }
